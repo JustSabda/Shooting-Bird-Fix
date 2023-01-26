@@ -1,0 +1,20 @@
+
+=== Thu Jan 26 10:10:09 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.visualstudio from version 2.0.7 to 2.0.12
+  com.unity.render-pipelines.universal from version 10.3.2 to 10.7.0
+  com.unity.visualeffectgraph from version 10.3.2 to 10.7.0
+
+=== Thu Jan 26 10:44:44 2023
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.visualstudio from version 2.0.12 to 2.0.14
+  com.unity.render-pipelines.universal from version 10.7.0 to 10.8.1
+  com.unity.visualeffectgraph from version 10.7.0 to 10.8.1
