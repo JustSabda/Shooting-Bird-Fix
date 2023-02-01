@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerWeapon
   - Dead Wall
+  - Egg
   layers:
   - Default
   - TransparentFX

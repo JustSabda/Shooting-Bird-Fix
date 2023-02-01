@@ -60,7 +60,13 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (col.gameObject.tag == "Egg")
+        {
+            col.gameObject.GetComponent<Egg>().Damaged();
+        }
+        
     }
+
 
 }
 

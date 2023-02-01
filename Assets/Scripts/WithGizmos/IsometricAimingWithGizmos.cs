@@ -53,7 +53,7 @@ public class IsometricAimingWithGizmos : MonoBehaviour
         RefreshLaser();
         Shoot();
         ChangeTargetMode();
-        GizmoSettings();
+        //GizmoSettings();
     }
 
     private void OnDrawGizmos()
@@ -187,7 +187,8 @@ public class IsometricAimingWithGizmos : MonoBehaviour
             ignoreHeight = !ignoreHeight;
         }
     }
-
+    
+    /*
     private void GizmoSettings()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -207,5 +208,6 @@ public class IsometricAimingWithGizmos : MonoBehaviour
             gizmo_ignoredHeightTarget = !gizmo_ignoredHeightTarget;
         }
     }
+    */
 
 }

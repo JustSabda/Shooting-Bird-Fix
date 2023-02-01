@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool rotateTowardMouse;
 
     [SerializeField]private Camera mainCamera;
+    public GameObject egg;
+    public Vector3 eggPlace;
 
     private void Awake()
     {
@@ -29,8 +31,32 @@ public class PlayerController : MonoBehaviour
         else
             RotateTowardMouseVector();
 
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        Instantiate(egg, transform.position + eggPlace, Quaternion.identity, transform);
+
+        /*
+        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        {
+            // only destroy tagged object
+            if (gameObject.transform.GetChild(i).gameObject.tag == "Egg")
+                Destroy(gameObject.transform.GetChild(i).gameObject);
+        }
+        */
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            gotShoot();
+        }
+
     }
 
+    public void gotShoot()
+    {
+        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        {
+
+        }
+    }
     private void RotateTowardMouseVector()
     {
         Ray ray = mainCamera.ScreenPointToRay(_input.MousePosition);
@@ -63,9 +89,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Dead Wall")
-        {
-            Destroy(gameObject);
-        }
+
+
     }
+
+    
 }
