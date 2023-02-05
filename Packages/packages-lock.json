@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "224725e4d5ad39a85eeb533b533f8449babc51d6"
     },
+    "com.febucci.custom-hierarchy": {
+      "version": "https://github.com/febucci/unitypackage-custom-hierarchy.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "093baf4e09c2cd21c284303a977ec112a43041a7"
+    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 2,

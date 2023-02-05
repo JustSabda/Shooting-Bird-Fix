@@ -1,53 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+
 
 public class PlayerController : MonoBehaviour
 {
     private InputHandler _input;
+    public static PlayerController Instance { get; private set; }
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private bool rotateTowardMouse;
 
     [SerializeField]private Camera mainCamera;
+
+    BoxCollider corner;
     public GameObject egg;
     public Vector3 eggPlace;
 
+    public Transform meeple;
+
+    public bool hadEgg;
+
+    [Header("Photon")]
+    PhotonView view;
+
     private void Awake()
     {
-        _input = GetComponent<InputHandler>();
 
+
+    }
+    private void Start()
+    {
+        _input = GetComponent<InputHandler>();
+        corner = GetComponent<BoxCollider>();
+        hadEgg = true;
+        view = GetComponent<PhotonView>();
     }
 
     void Update()
     {
-        var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
-
-        var movementVector = MoveTowardTarget(targetVector);
-
-        if(!rotateTowardMouse)
-        RotateTowardMovementVector(movementVector);
-        else
-            RotateTowardMouseVector();
-
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        Instantiate(egg, transform.position + eggPlace, Quaternion.identity, transform);
-
-        /*
-        for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+        if (view.IsMine)
         {
-            // only destroy tagged object
-            if (gameObject.transform.GetChild(i).gameObject.tag == "Egg")
-                Destroy(gameObject.transform.GetChild(i).gameObject);
-        }
-        */
+            mainCamera = Camera.main;
+            meeple = transform.Find("Egg");
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            gotShoot();
-        }
+            if (meeple == null)
+            {
+                hadEgg = false;
+                corner.enabled = false;
+            }
+            else
+            {
+                hadEgg = true;
+                corner.enabled = true;
+            }
 
+            var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
+
+            var movementVector = MoveTowardTarget(targetVector);
+
+            if (!rotateTowardMouse)
+                RotateTowardMovementVector(movementVector);
+            else
+                RotateTowardMouseVector();
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                Instantiate(egg, transform.position + eggPlace, Quaternion.identity, transform);
+
+            /*
+            for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
+            {
+                // only destroy tagged object
+                if (gameObject.transform.GetChild(i).gameObject.tag == "Egg")
+                    Destroy(gameObject.transform.GetChild(i).gameObject);
+            }
+            */
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                gotShoot();
+            }
+
+
+        }
     }
 
     public void gotShoot()

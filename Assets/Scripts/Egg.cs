@@ -43,6 +43,7 @@ public class Egg : MonoBehaviour
 
         if (_state == state.GONE)
         {
+            //PlayerController.Instance.hadEgg = false;
             if (done)
             {
                 currentTime = startingTime;
@@ -87,5 +88,9 @@ public class Egg : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
+
+
 }

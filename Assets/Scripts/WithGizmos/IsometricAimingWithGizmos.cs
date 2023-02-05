@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 
 public class IsometricAimingWithGizmos : MonoBehaviour
@@ -29,15 +30,20 @@ public class IsometricAimingWithGizmos : MonoBehaviour
     private Camera mainCamera;
 
     private Rigidbody rb;
+
+    [Header("Dash")]
     [SerializeField] private float forceBack;
     [SerializeField] private bool shootBack;
     [SerializeField] private float dashPower;
+
+    [Header("Photon")]
+    PhotonView view;
 
     private void Start()
     {
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
-
+        view = GetComponent<PhotonView>();
         if (laserRenderer != null)
         {
             laserRenderer.SetPositions(new Vector3[]{
@@ -49,11 +55,16 @@ public class IsometricAimingWithGizmos : MonoBehaviour
 
     private void Update()
     {
-        Aim();
-        RefreshLaser();
-        Shoot();
-        ChangeTargetMode();
-        //GizmoSettings();
+        if (view.IsMine)
+        {
+
+
+            Aim();
+            RefreshLaser();
+            Shoot();
+            ChangeTargetMode();
+            //GizmoSettings();
+        }
     }
 
     private void OnDrawGizmos()

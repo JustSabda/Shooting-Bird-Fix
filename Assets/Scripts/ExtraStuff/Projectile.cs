@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Photon.Pun;
 
 public class Projectile : MonoBehaviour
 {
@@ -17,15 +17,19 @@ public class Projectile : MonoBehaviour
 
     private bool destoryed = true;
     private int hit;
+
+    PhotonView view;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        view = GetComponent<PhotonView>();
         rb.velocity = transform.forward * speed;
     }
     private void Update()
     {
-        lastvelocity = rb.velocity;
+        if (view.IsMine)
+            lastvelocity = rb.velocity;
     }
     private void OnCollisionEnter(Collision col)
     {
