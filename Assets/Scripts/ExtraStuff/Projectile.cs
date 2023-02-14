@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
     }
     private void Update()
     {
-        if (view.IsMine)
+        
             lastvelocity = rb.velocity;
     }
     private void OnCollisionEnter(Collision col)

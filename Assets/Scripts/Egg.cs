@@ -19,7 +19,8 @@ public class Egg : MonoBehaviour
     bool done;
     public TMP_Text countdownText;
     public Color color;
-    
+
+    public Transform Core;
 
     void Start()
     {
@@ -57,21 +58,29 @@ public class Egg : MonoBehaviour
             {
                 currentTime = 0;
                 _state = state.PICKUP;
+                
             }
         }
+        
         
     }
 
     public void Damaged()
     {
+        if (_state != state.GONE || _state != state.PICKUP)
+        {
+            backParent(Core);
 
-        this.gameObject.transform.SetParent(null);
-        rb.isKinematic = false;
-        _state = state.GONE;
-        done = true;
-        capsule.isTrigger = false;
+            rb.isKinematic = false;
+            _state = state.GONE;
+            done = true;
+            capsule.isTrigger = false;
+        }
 
-
+    }
+    public void backParent(Transform parent)
+    {
+        this.gameObject.transform.SetParent(parent);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -80,13 +89,14 @@ public class Egg : MonoBehaviour
         {
             this.gameObject.transform.SetParent(collision.transform);
             transform.localPosition = new Vector3(0.01f, 0.68f, -1f);
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             rb.isKinematic = true;
+            countdownText.text = currentTime.ToString("3");
         }
 
         if (collision.gameObject.tag == "Dead Wall")
         {
-            Destroy(gameObject);
+            Destroy(Core);
         }
 
         

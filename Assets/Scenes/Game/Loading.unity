@@ -269,7 +269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOADING COK
+  m_Text: Loading Dulu beb...
 --- !u!222 &153797210
 CanvasRenderer:
   m_ObjectHideFlags: 0

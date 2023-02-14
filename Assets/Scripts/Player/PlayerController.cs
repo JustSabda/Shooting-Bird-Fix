@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]private Camera mainCamera;
 
-    BoxCollider corner;
+    public BoxCollider corner;
     public GameObject egg;
     public Vector3 eggPlace;
 
