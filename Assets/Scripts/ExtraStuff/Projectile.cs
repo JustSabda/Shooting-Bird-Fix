@@ -18,17 +18,21 @@ public class Projectile : MonoBehaviour
     private bool destoryed = true;
     private int hit;
 
+    [Header("Photon")]
     PhotonView view;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         view = GetComponent<PhotonView>();
+
+        if(view.IsMine)
         rb.velocity = transform.forward * speed;
+
     }
     private void Update()
     {
-        
+        if(view.IsMine)
             lastvelocity = rb.velocity;
     }
     private void OnCollisionEnter(Collision col)

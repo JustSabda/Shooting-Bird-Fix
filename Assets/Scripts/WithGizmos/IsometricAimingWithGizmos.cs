@@ -154,7 +154,7 @@ public class IsometricAimingWithGizmos : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var projectile = Instantiate(projectilePrefab, prefabSpawn.position, Quaternion.identity);
+            var projectile = PhotonNetwork.Instantiate(projectilePrefab.name, prefabSpawn.position, Quaternion.identity);
             projectile.transform.forward = aimedTransform.forward;
 
             if (shootBack)
