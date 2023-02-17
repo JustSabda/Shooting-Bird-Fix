@@ -1,6 +1,7 @@
 using System.Collections;
 
 using UnityEngine;
+using Photon.Pun;
 using UnityEngine.VFX;
 
 
@@ -43,7 +44,7 @@ using UnityEngine.VFX;
                 yield return new WaitForFixedUpdate();
             }
 
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
 
         #endregion

@@ -64,8 +64,8 @@ public class Projectile : MonoBehaviour
 
         if (destoryed == false)
         {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            PhotonNetwork.Instantiate(explosionEffect.name, transform.position, Quaternion.identity);
+            PhotonNetwork.Destroy(gameObject);
         }
 
         if (col.gameObject.tag == "Egg")

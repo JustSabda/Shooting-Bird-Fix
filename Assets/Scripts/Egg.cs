@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 using TMPro;
 
 public class Egg : MonoBehaviour
@@ -96,7 +97,7 @@ public class Egg : MonoBehaviour
 
         if (collision.gameObject.tag == "Dead Wall")
         {
-            Destroy(Core);
+            PhotonNetwork.Destroy(Core.gameObject);
         }
 
         

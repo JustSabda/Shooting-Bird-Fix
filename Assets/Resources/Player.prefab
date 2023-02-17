@@ -106,6 +106,14 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[2]
       value: 
       objectReference: {fileID: 977331000985796984}
+    - target: {fileID: 5730723326882998079, guid: 990cac7b48d98914b820817c96c45052, type: 3}
+      propertyPath: m_RotationModel.InterpolateOption
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730723327016860158, guid: 990cac7b48d98914b820817c96c45052, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990cac7b48d98914b820817c96c45052, type: 3}
 --- !u!1 &3899287302149094580 stripped
