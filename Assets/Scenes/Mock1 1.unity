@@ -1549,6 +1549,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1655143049755880491, guid: 10bd38a5b11e2384e94849bd10446400, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1800284111544106033, guid: 10bd38a5b11e2384e94849bd10446400, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1560,6 +1564,10 @@ PrefabInstance:
     - target: {fileID: 3899287302149094576, guid: 10bd38a5b11e2384e94849bd10446400, type: 3}
       propertyPath: sceneViewId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490996214546661713, guid: 10bd38a5b11e2384e94849bd10446400, type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10bd38a5b11e2384e94849bd10446400, type: 3}
@@ -1925,10 +1933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1800284111544106033, guid: 10bd38a5b11e2384e94849bd10446400, type: 3}
-  minX: -15.4
-  maxX: 16.1
-  minZ: 0
-  maxZ: 0
 --- !u!4 &1928868314
 Transform:
   m_ObjectHideFlags: 0
