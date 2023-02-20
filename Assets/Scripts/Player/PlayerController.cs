@@ -55,6 +55,12 @@ public class PlayerController : MonoBehaviour
             {
                 hadEgg = true;
                 corner.enabled = true;
+                
+            }
+
+            if(corner.GetComponent<DeadWall>())
+            {
+                PhotonNetwork.Destroy(gameObject);
             }
 
             var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
@@ -124,11 +130,13 @@ public class PlayerController : MonoBehaviour
         return targetVector;
     }
 
-    private void OnCollisionEnter(Collision col)
+
+    private void OnTriggerEnter(Collider other)
     {
-
-
+        if(other.gameObject.CompareTag("Dead Wall"))
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 
-    
 }

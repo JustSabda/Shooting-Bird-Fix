@@ -23,6 +23,9 @@ public class Egg : MonoBehaviour
 
     public Transform Core;
 
+    [Header("Photon")]
+    PhotonView view;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -97,10 +100,17 @@ public class Egg : MonoBehaviour
 
         if (collision.gameObject.tag == "Dead Wall")
         {
-            PhotonNetwork.Destroy(Core.gameObject);
+            //PhotonNetwork.Destroy(this.gameObject.transform);
+            view.RPC("Destroyed", RpcTarget.All);
         }
 
         
+    }
+
+    [PunRPC]
+    void Destroyed()
+    {
+        Destroy(this.gameObject.transform);
     }
 
 
